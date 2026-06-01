@@ -20,8 +20,8 @@ describe('loadIgnoreList', () => {
     vi.clearAllMocks();
   });
 
-  it('returns_package_ids_from_wguignore_file_in_home_directory', () => {
-    const ignoreFilePath = 'C:\\Users\\testuser\\.wguignore';
+  it('returns_package_ids_from_fwguignore_file_in_home_directory', () => {
+    const ignoreFilePath = 'C:\\Users\\testuser\\.fwguignore';
 
     const result = loadIgnoreList(ignoreFilePath);
 
@@ -30,7 +30,7 @@ describe('loadIgnoreList', () => {
   });
 
   it('filters_out_comment_lines_starting_with_hash', () => {
-    const ignoreFilePath = 'C:\\Users\\testuser\\.wguignore';
+    const ignoreFilePath = 'C:\\Users\\testuser\\.fwguignore';
     const contentWithComments = 'Package.One\n# This is a comment\nPackage.Two\n# Another comment\nPackage.Three';
 
     readFileSync.mockReturnValueOnce(contentWithComments);
@@ -48,7 +48,7 @@ describe('loadIgnoreList', () => {
   });
 
   it('trims_whitespace_from_package_ids', () => {
-    const ignoreFilePath = 'C:\\Users\\testuser\\.wguignore';
+    const ignoreFilePath = 'C:\\Users\\testuser\\.fwguignore';
     const contentWithWhitespace = '  Package.One  \n\tPackage.Two\t\n   Package.Three   ';
 
     readFileSync.mockReturnValueOnce(contentWithWhitespace);
@@ -64,7 +64,7 @@ describe('loadIgnoreList', () => {
   });
 
   it('filters_out_empty_lines', () => {
-    const ignoreFilePath = 'C:\\Users\\testuser\\.wguignore';
+    const ignoreFilePath = 'C:\\Users\\testuser\\.fwguignore';
     const contentWithEmptyLines = 'Package.A\n\n  \n\t\nPackage.B\n';
 
     readFileSync.mockReturnValueOnce(contentWithEmptyLines);

@@ -1,24 +1,24 @@
 {
-  "name": "win-get-updates",
+  "name": "forked-win-get-updates",
   "version": "0.0.7-SNAPSHOT",
-  "description": "Third party CLI frontend for winget update runs.",
+  "description": "Forked third party CLI frontend for winget update runs.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JanMosigItemis/wgu.git"
+    "url": "git+https://github.com/gigabitzauber/fwgu.git"
   },
-  "homepage": "https://github.com/JanMosigItemis/wgu",
+  "homepage": "https://github.com/gigabitzauber/fwgu",
   "bugs": {
-    "url": "https://github.com/JanMosigItemis/wgu/issues"
+    "url": "https://github.com/gigabitzauber/fwgu/issues"
   },
   "type": "module",
   "main": "src/index.js",
   "bin": {
-    "wgu": "src/cli.js"
+    "fwgu": "src/cli.js"
   },
   "scripts": {
     "start": "node src/cli.js",
     "prebuild": "npm run version:gen",
-    "version:gen": "node -p \"'const WGU_VERSION = \\'' + require('./package.json').version + '\\';\\nexport default WGU_VERSION;'\" > src/lib/version.js",
+    "version:gen": "node -p \"'const FWGU_VERSION = \\'' + require('./package.json').version + '\\';\\nexport default FWGU_VERSION;'\" > src/lib/version.js",
     "test": "vitest run",
     "tests": "npm run test --",
     "lint": "eslint .",

@@ -2,31 +2,31 @@
 
 import { main } from './index.js';
 import { parseArgs } from './lib/arg_parser.js';
-import WGU_VERSION from './lib/version.js';
+import FWGU_VERSION from './lib/version.js';
 
 const HELP_TEXT = `
-wgu - Winget update on steroids
+fwgu - Forked winget update on steroids
 
 USAGE:
-  wgu [options]
+  fwgu [options]
 
 OPTIONS:
   --help, -h              Show this help message
   --version, -v           Show version
-  --ignore-file <path>    Use custom ignore file instead of ~/.wguignore
+  --ignore-file <path>    Use custom ignore file instead of ~/.fwguignore
 
 DESCRIPTION:
   Interactive CLI for managing Windows package updates via winget.
   Provides a menu-driven interface to select and update packages.
   
-  Wgu can load package IDs to ignore from ~/.wguignore if this file exists.
+  Fwgu can load package IDs to ignore from ~/.fwguignore if this file exists.
   The ignore file supports comments (lines starting with #).
 
 EXAMPLES:
-  wgu                              Run the interactive updater
-  wgu --help                       Display help
-  wgu --version                    Show version
-  wgu --ignore-file myignore.txt   Use custom ignore file
+  fwgu                              Run the interactive updater
+  fwgu --help                       Display help
+  fwgu --version                    Show version
+  fwgu --ignore-file myignore.txt   Use custom ignore file
 `;
 
 async function cli() {
@@ -45,7 +45,7 @@ async function cli() {
   }
 
   if (parsed.version) {
-    console.log(`wgu v${WGU_VERSION}`);
+    console.log(`fwgu v${FWGU_VERSION}`);
     process.exit(0);
   }
 

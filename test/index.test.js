@@ -6,7 +6,7 @@ vi.mock('../src/lib/os.js', () => ({
   assertWingetAvailable: vi.fn(),
 }));
 
-vi.mock('../src/lib/wgu_i18n.js', () => ({
+vi.mock('../src/lib/fwgu_i18n.js', () => ({
   getWindowsUserLang: vi.fn(() => 'en'),
   isLocaleSupported: vi.fn(() => true),
 }));
@@ -69,9 +69,9 @@ describe('main', () => {
     vi.spyOn(process, 'on').mockImplementation(() => {});
   });
 
-  it('loads_ignore_list_from_wguignore_in_home_directory_and_passes_to_getUpdateCandidates', async () => {
+  it('loads_ignore_list_from_fwguignore_in_home_directory_and_passes_to_getUpdateCandidates', async () => {
     const expectedHomedir = 'C:\\Users\\TestUser';
-    const expectedIgnoreFilePath = join(expectedHomedir, '.wguignore');
+    const expectedIgnoreFilePath = join(expectedHomedir, '.fwguignore');
     const expectedIgnoreList = ['Package.One', 'Package.Two'];
 
     await main({ stdout: mockStdout, stderr: mockStderr, stdin: mockStdin, logger: mockLogger });

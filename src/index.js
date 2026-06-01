@@ -2,15 +2,15 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { getUpdateCandidates, runUpdates } from './lib/winget.js';
 import { interactiveSelect } from './lib/menu.js';
-import WGU_VERSION from './lib/version.js';
+import FWGU_VERSION from './lib/version.js';
 import { askPermissionToContinue } from './lib/console_commons.js';
 import { assertWindows, assertWingetAvailable } from './lib/os.js';
-import { getWindowsUserLang, isLocaleSupported } from './lib/wgu_i18n.js';
+import { getWindowsUserLang, isLocaleSupported } from './lib/fwgu_i18n.js';
 import { loadIgnoreList } from './lib/ignore.js';
 
 const DEFAULT_LOCALE = 'en';
 
-const IGNORE_FILE_NAME_DEFAULT = '.wguignore';
+const IGNORE_FILE_NAME_DEFAULT = '.fwguignore';
 /**
  * Main application logic
  * @param {Object} options - Configuration options
@@ -39,7 +39,7 @@ export async function main({ stdout = process.stdout, stderr = process.stderr, s
       return 0;
     });
 
-    logger.log(`This is WGU v${WGU_VERSION}`);
+    logger.log(`This is FWGU v${FWGU_VERSION}`);
 
     let windowsUserLang = getWindowsUserLang();
     if (windowsUserLang === null) {

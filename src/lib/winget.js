@@ -1,4 +1,4 @@
-import { getColName, WINGET_COLS_TO_I18N_KEY_MAP } from './wgu_i18n.js';
+import { getColName, WINGET_COLS_TO_I18N_KEY_MAP } from './fwgu_i18n.js';
 import { spawnSyncProcess } from './system.js';
 
 /**
