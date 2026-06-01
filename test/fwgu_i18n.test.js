@@ -1,28 +1,28 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import * as wgu_i18n from '../src/lib/wgu_i18n.js';
+import * as fwgu_i18n from '../src/lib/fwgu_i18n.js';
 
-describe('wgu_i18n', () => {
+describe('fwgu_i18n', () => {
   describe('isLocaleSupported', () => {
     it('returns_true_for_supported_locale_en', () => {
-      const result = wgu_i18n.isLocaleSupported('en');
+      const result = fwgu_i18n.isLocaleSupported('en');
 
       expect(result).toBe(true);
     });
 
     it('returns_true_for_supported_locale_de', () => {
-      const result = wgu_i18n.isLocaleSupported('de');
+      const result = fwgu_i18n.isLocaleSupported('de');
 
       expect(result).toBe(true);
     });
 
     it('returns_false_for_unsupported_locale', () => {
-      const result = wgu_i18n.isLocaleSupported('fr');
+      const result = fwgu_i18n.isLocaleSupported('fr');
 
       expect(result).toBe(false);
     });
 
     it('returns_false_for_invalid_locale', () => {
-      const result = wgu_i18n.isLocaleSupported('xx-XX');
+      const result = fwgu_i18n.isLocaleSupported('xx-XX');
 
       expect(result).toBe(false);
     });
@@ -30,45 +30,45 @@ describe('wgu_i18n', () => {
 
   describe('getColName', () => {
     it('returns_english_name_for_name_col_with_en_locale', () => {
-      const result = wgu_i18n.getColName('name_col', 'en');
+      const result = fwgu_i18n.getColName('name_col', 'en');
 
       expect(result).toBe('Name');
     });
 
     it('returns_german_name_for_available_col_with_de_locale', () => {
-      const result = wgu_i18n.getColName('available_col', 'de');
+      const result = fwgu_i18n.getColName('available_col', 'de');
 
       expect(result).toBe('Verfügbar');
     });
 
     it('returns_english_for_id_col_with_en_locale', () => {
-      const result = wgu_i18n.getColName('id_col', 'en');
+      const result = fwgu_i18n.getColName('id_col', 'en');
 
       expect(result).toBe('ID');
     });
 
     it('returns_german_for_version_col_with_de_locale', () => {
-      const result = wgu_i18n.getColName('version_col', 'de');
+      const result = fwgu_i18n.getColName('version_col', 'de');
 
       expect(result).toBe('Version');
     });
 
     it('returns_german_for_source_col_with_de_locale', () => {
-      const result = wgu_i18n.getColName('source_col', 'de');
+      const result = fwgu_i18n.getColName('source_col', 'de');
 
       expect(result).toBe('Quelle');
     });
 
     it('throws_error_when_locale_not_found', () => {
-      expect(() => wgu_i18n.getColName('name_col', 'fr')).toThrow('Missing localization for locale: fr');
+      expect(() => fwgu_i18n.getColName('name_col', 'fr')).toThrow('Missing localization for locale: fr');
     });
 
     it('throws_error_for_missing_key', () => {
-      expect(() => wgu_i18n.getColName('invalid_key', 'en')).toThrow('Missing localization for key: invalid_key');
+      expect(() => fwgu_i18n.getColName('invalid_key', 'en')).toThrow('Missing localization for key: invalid_key');
     });
 
     it('throws_error_for_unsupported_locale_on_valid_key', () => {
-      expect(() => wgu_i18n.getColName('version_col', 'es')).toThrow('Missing localization for locale: es');
+      expect(() => fwgu_i18n.getColName('version_col', 'es')).toThrow('Missing localization for locale: es');
     });
   });
 
@@ -87,7 +87,7 @@ describe('wgu_i18n', () => {
     it('returns_language_code_from_windows_user_lang_tag', () => {
       mockSpawnSyncProcess.mockReturnValue('de-DE');
 
-      const result = wgu_i18n.getWindowsUserLang();
+      const result = fwgu_i18n.getWindowsUserLang();
 
       expect(result).toBe('de');
       expect(mockSpawnSyncProcess).toHaveBeenCalledWith('powershell', ['-c', '(Get-WinUserLanguageList)[0].LanguageTag']);
@@ -98,7 +98,7 @@ describe('wgu_i18n', () => {
         throw new Error('PowerShell not available');
       });
 
-      const result = wgu_i18n.getWindowsUserLang();
+      const result = fwgu_i18n.getWindowsUserLang();
 
       expect(result).toBe(null);
     });
@@ -106,7 +106,7 @@ describe('wgu_i18n', () => {
     it('extracts_language_from_complex_locale_tag', () => {
       mockSpawnSyncProcess.mockReturnValue('en-US');
 
-      const result = wgu_i18n.getWindowsUserLang();
+      const result = fwgu_i18n.getWindowsUserLang();
 
       expect(result).toBe('en');
     });

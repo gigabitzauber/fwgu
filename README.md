@@ -1,8 +1,10 @@
-# win-get-updates
+# Forked win-get-updates
 
 Third party CLI frontend for [winget](https://en.wikipedia.org/wiki/Windows_Package_Manager) update runs. It lets you interactively choose which package to install.
 
-<img src="./pics/example.jpg" alt="Example screenshot of win-get-updates in action" width="650px" />
+<img src="./pics/example.jpg" alt="Example screenshot of forked win-get-updates in action" width="650px" />
+
+This is a fork of [win-get-updates](https://github.com/JanMosigItemis/wgu).
 
 ## Requirements
 
@@ -19,7 +21,7 @@ npm install -g win-get-updates
 ### Global
 
 ```
-wgu
+fwgu
 ```
 
 ### Local development
@@ -30,25 +32,25 @@ node src\cli.js
 
 ## Ignore File
 
-wgu supports ignoring specific packages from the update list using an ignore file.
+fwgu supports ignoring specific packages from the update list using an ignore file.
 
 ### Default Location
 
-By default, wgu loads package IDs to ignore from `~/.wguignore` (in your home directory). If this file doesn't exist, all packages will be shown.
+By default, fwgu loads package IDs to ignore from `~/.fwguignore` (in your home directory). If this file doesn't exist, all packages will be shown.
 
 ### Custom Ignore File
 
 You can specify a custom ignore file using the `--ignore-file` option:
 
 ```
-wgu --ignore-file C:\path\to\myignore.txt
+fwgu --ignore-file C:\path\to\myignore.txt
 ```
 
 ### Format
 
 The ignore file should contain one package ID per line. Package IDs are matched case-insensitively.
 
-Example `.wguignore`:
+Example `.fwguignore`:
 
 ```
 # Packages I want to update manually
