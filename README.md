@@ -13,7 +13,7 @@ Windows with [winget](https://en.wikipedia.org/wiki/Windows_Package_Manager) ins
 ## Install
 
 ```
-npm install -g win-get-updates
+npm install -g forked-win-get-updates
 ```
 
 ## Run

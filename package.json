@@ -45,12 +45,6 @@
     "prettier": "3.8.3",
     "vitest": "4.1.8"
   },
-  "overrides": {
-    "eslint": {
-      "flatted": "3.4.2"
-    }
-  },
-  "override-comments": {
-    "flatted": "HIGH CVE, https://github.com/advisories/GHSA-25h7-pfq9-p65f"
-  }
+  "overrides": {},
+  "override-comments": {}
 }
