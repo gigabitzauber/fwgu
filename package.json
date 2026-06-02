@@ -1,6 +1,6 @@
 {
   "name": "forked-win-get-updates",
-  "version": "0.0.7",
+  "version": "0.0.8-SNAPSHOT",
   "description": "Forked third party CLI frontend for winget update runs.",
   "repository": {
     "type": "git",
